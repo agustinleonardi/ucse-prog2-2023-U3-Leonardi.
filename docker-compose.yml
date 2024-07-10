@@ -1,0 +1,16 @@
+services:
+  app1:
+    build: ./app1
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./app1:/usr/src/app
+
+  app2:
+    build: ./app2
+    ports:
+      - "4001:4001"
+    depends_on:
+      - app1
+    volumes:
+      - ./app2:/usr/src/app
